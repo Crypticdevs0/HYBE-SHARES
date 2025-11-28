@@ -1,0 +1,47 @@
+Implement the complete application described in the plan response below. Focus on creating functional, well-structured code that meets all specified requirements.
+
+**IMPLEMENTATION PLAN & REQUIREMENTS:**
+<plan_response>
+# Product Brief
+
+## Goal
+Build a mobile-first paper trading platform for HYBE Corporation that simulates stock trading with virtual money, featuring portfolio tracking, market research tools, and exclusive fan-shareholder benefits.
+
+## Features
+
+1. **User Registration & Authentication** — Users register with email and password, log in securely, and reset forgotten passwords; sessions persist across visits with secure token-based authentication.
+
+2. **Onboarding Flow** — New users complete a splash screen with HYBE branding, risk profile assessment questionnaire (multiple-choice to determine investment experience and risk tolerance), receive $10,000 virtual starting balance, and optional interactive app tour.
+
+3. **Portfolio Dashboard** — Display total portfolio value with daily change (absolute and percentage), interactive performance chart with timeframe toggles (1D, 1W, 1M, 1Y, All), holdings list showing stock symbol, company name, shares owned, current value, and day's change, plus quick action buttons for trading.
+
+4. **Stock Search & Discovery** — Search bar to find stocks by ticker symbol or company name, browse curated lists of K-pop entertainment stocks, view HYBE stock prominently featured.
+
+5. **Stock Detail Screen** — Show current simulated price with daily change, interactive price chart with technical indicators, key statistics (P/E ratio, volume, market cap, 52-week high/low), company information, and Buy/Sell action buttons.
+
+6. **Order Placement System** — Toggle between Buy and Sell modes, select order type (Market, Limit, Stop) with explanatory tooltips, input quantity with quick percentage buttons (25%, 50%, 75%, 100% of available funds/shares), view estimated cost and available balance, review order summary before confirmation.
+
+7. **Order Execution & Management** — Market orders execute instantly with simulated price, Limit and Stop orders remain pending until conditions met, view active orders with cancel option, complete order history with timestamps and execution prices.
+
+8. **Watchlist Management** — Users add/remove stocks to personal watchlist (HYBE included by default), view real-time simulated prices and daily changes for all watched stocks, reorder watchlist items.
+
+9. **Markets Overview Tab** — Display market movers (top 5 gainers and losers from simulated stock universe), trending K-pop entertainment stocks, curated market news feed with stock-relevant articles.
+
+10. **Stock Research Tools** — Interactive charts with multiple technical indicators (moving averages, RSI, volume), company profile and business description, simulated news feed for each stock, basic sentiment indicators.
+
+11. **HYBE Fan-Shareholder Benefits** — Users holding HYBE stock unlock exclusive content section with artist videos, photos, behind-the-scenes content, and company announcements; loyalty points system awards points based on shares held and platform engagement; special event invitations for virtual shareholder events.
+
+12. **Educational Content Library** — Organized collection of articles and video tutorials covering investing basics, stock market fundamentals, HYBE business model, K-pop industry insights, and trading strategies; content searchable and categorized by topic and difficulty level.
+
+13. **Account Management** — Users view and edit profile information, change password with validation, enable two-factor authentication via email, view complete transaction history with filters, download portfolio statements as PDF.
+
+14. **Notifications System** — In-app notifications for order executions, price alerts for watchlist stocks, new exclusive content availability, educational content recommendations, and platform announcements.
+
+15. **Mobile-First Responsive Design** — Interface optimized for mobile screens (320px+) with HYBE brand colors (black #000000 and white #FFFFFF primary, purple-to-blue gradient #7B61FF to #4A90E2 accent, green #00C805 for gains, red #FF0000 for losses), smooth animations and transitions, bottom navigation for main sections (Portfolio, Trade, Markets, Account).
+
+16. **Simulated Market Data Engine** — Generate realistic mock price movements for HYBE and K-pop entertainment stocks based on historical patterns, update prices at regular intervals to simulate market activity, maintain price history for charting.
+
+17. **Data Persistence** — Use the platform-hosted persistent database to store user accounts, virtual portfolios, transaction history, watchlists, order books, loyalty points, and user preferences.
+
+**P.S.** We've adapted this to work as a web application accessible from mobile browsers instead of a native app.
+</plan_response>

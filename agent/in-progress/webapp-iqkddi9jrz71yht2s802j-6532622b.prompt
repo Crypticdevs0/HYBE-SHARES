@@ -1,0 +1,104 @@
+
+You now have project files in the /home/user/vite-template directory. This is a continuation of your previous work - you should continue developing from the code you've already written.
+
+Please first review the existing code files to understand the current state of the project, then directly modify or extend the corresponding code based on the user's new requirements.
+
+Please start writing code immediately without asking the user any further questions. If you need to create new files or modify existing files, please proceed directly. Your goal is to complete all necessary code changes according to the user's requirements to make the project run properly.
+
+User requirement: 
+I was thinking about making a few updateApp Name Concept: "HYBE INSIGHT"
+
+1. Core Feature: The "Fan-Vestor" Identity
+
+Unlike a standard broker (like Robinhood), this app would link your brokerage account to your Weverse ID.
+
+    Verification Badge: Your Weverse profile gets a "Shareholder" badge (Gold/Platinum based on shares held).
+
+    Tiered Membership:
+
+        1+ Share: Access to the app and digital shareholder ID.
+
+        10+ Shares: 5% Discount on Weverse Shop.
+
+        50+ Shares: Priority access (Pre-sale) for concert tickets (a massive pain point for fans).
+
+        100+ Shares: Invite-only access to IR (Investor Relations) fan-meetings or "Town Halls" with executives.
+
+2. Financial Features (The "Broker" Side)
+
+    Direct Stock Purchase (DSP): Buy fractional shares of HYBE (352820.KS). You could set up a "Biased Recurring Buy" (e.g., "Invest ₩10,000 every time BTS releases a song").
+
+    Dividend Reinvestment (DRIP) into Merch: Instead of cash dividends, you could choose to receive "Weverse Cash" with a 10% bonus, usable for albums or concert tickets.
+
+    Visual Portfolio: Instead of boring charts, your portfolio growth could be visualized with artist themes (e.g., a "NewJeans" theme where the graph color matches their latest album aesthetic).
+
+3. Exclusive Content & Digital Assets (NFTs)
+
+Leveraging their partnership with Dunamu (Upbit) and their NFT platform Momentica:
+
+    Shareholder "TAKEs": Every quarter you hold shares, you receive a limited edition digital collectible (NFT) of a HYBE artist. These are non-tradeable "Proof of HODL" badges.
+
+    Voting Rights 2.0: A simplified, gamified interface to vote at the Annual General Meeting (AGM). Instead of complex paperwork, you vote on the app and receive a "Participation Reward" (digital photocard).
+
+4. "Edu-tainment" (Financial Literacy)
+
+To onboard younger fans into the stock market:
+
+    "Idol" Market Briefs: Short video content where distinct AI avatars or actual artists explain quarterly results simply. (e.g., "Here is why our tour revenue went up this quarter!").
+
+    Fandom Analytics: The app would show data that links fan activity to stock performance. Example: "Album sales for SEVENTEEN just hit 5M—here is how that impacts our Q4 revenue projection."
+
+Summary of Potential Features
+
+Feature Category	Description
+👛 Integrated Wallet	View your stock portfolio alongside your Weverse Cash balance.
+🎫 Ticket Presale	Shareholders get a 1-hour head start on ticketing for tours.
+🛍️ Merch Perks	Automatic discounts on Weverse Shop applied at checkout.
+💎 Digital Dividends	Option to take dividends as exclusive NFTs or store credit.
+🗳️ Easy Voting	One-tap proxy voting for shareholder meetings.
+
+Previous work summary: 
+Here's a summary of all the enhancements I implemented to make the K-pop stock trading simulator look more real and production-ready:
+
+## Implemented Enhancements Summary
+
+### 1. **Real-time Price Flash Animations** 
+- Added visual feedback when prices change (green flash for up, red flash for down)
+- Cards show subtle ring glow and background tint during price updates
+- Flash animation clears after 800ms
+
+### 2. **Market Hours Indicator (KRX Status)**
+- Added a live market status bar showing "KRX Open/Closed/Pre-market/After-hours"
+- Displays countdown to next market event (e.g., "Opens in 2h 30m", "Closes in 1h 15m")
+- Shows KOSDAQ exchange badge
+- Animated pulse indicator (green when open, yellow when closed)
+
+### 3. **Company Brand Colors & Logos**
+- Each stock now has unique brand colors:
+  - HYBE: Black/Purple
+  - SM: Hot Pink/Pink
+  - JYP: Orange/Peach
+  - YG: Black/Gold
+  - CUBE: Teal/Mint
+  - STARSHIP: Blue/Sky Blue
+  - FNC: Magenta/Pink
+  - PLEDIS: Purple/Lavender
+- Stock avatars show abbreviated company logos (H, SM, J, YG, C, S, F, P)
+
+### 4. **Pending Orders Panel**
+- New section in portfolio view showing active limit/stop orders
+- Displays up to 3 pending orders with cancel buttons
+- Shows order type, trigger price, quantity, and execution status
+- "View all" link when more than 3 orders exist
+
+### 5. **Volume Bars on Candlestick Chart**
+- Added volume chart below the main candlestick chart
+- Shows average volume statistic
+- Visual bar chart with semi-transparent purple bars
+
+### 6. **Quick Trade Buttons**
+- Added +10, +50, +100 increment buttons next to quantity input
+- Enhanced percentage buttons with "MAX" label for 100%
+- Purple highlighting on quick-action buttons
+
+All enhancements pass TypeScript validation and ESLint checks. The application now has a more polished, realistic trading interface with professional visual feedback and improved user experience.

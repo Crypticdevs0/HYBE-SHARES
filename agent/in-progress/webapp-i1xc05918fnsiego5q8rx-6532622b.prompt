@@ -1,0 +1,33 @@
+
+You now have project files in the /home/user/vite-template directory. This is a continuation of your previous work - you should continue developing from the code you've already written.
+
+Please first review the existing code files to understand the current state of the project, then directly modify or extend the corresponding code based on the user's new requirements.
+
+Please start writing code immediately without asking the user any further questions. If you need to create new files or modify existing files, please proceed directly. Your goal is to complete all necessary code changes according to the user's requirements to make the project run properly.
+
+User requirement: 
+properly wire the notification bell icon so it is active for real-time notifications on all account activities, Ensure all dashboard pages are created in order to avoid flow and redirect errors
+
+Previous work summary: 
+I've fixed the registration error handling. Here's a summary of the changes made:
+
+## Changes Made
+
+### 1. Fixed Registration Error Handling (`src/routes/index.tsx:1688-1759`)
+
+The original `handleRegister` function had a generic catch block that showed "Registration failed. Please try again." for all errors, hiding the actual cause. The improved version now:
+
+- **Email check errors**: Logs the error but continues with registration (non-blocking)
+- **User insertion errors**: Shows specific message "Failed to create account. Please check your connection and try again."
+- **Empty response**: Shows "Failed to create account. The server did not return user data."
+- **Watchlist errors**: Logs the error but doesn't fail registration (non-blocking)
+- **Generic errors**: Now shows the actual error message: `Registration failed: {error message}`
+
+### 2. Created Missing `orm_watchlist.ts` (`src/components/data/orm/orm_watchlist.ts`)
+
+This file was missing and causing TypeScript compilation errors. Created the complete ORM class with:
+- `WatchlistModel` interface with `user_id`, `stock_id`, `position` fields
+- Full CRUD operations (insert, get, set, delete, list, purge)
+- Indexes on `Id`, `StockIdUserId`, `DataCreator`, `DataUpdater`
+
+The build now passes successfully. The improved error handling will provide more specific feedback when registration fails, helping you identify the actual cause of the issue.

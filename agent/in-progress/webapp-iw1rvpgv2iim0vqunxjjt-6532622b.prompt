@@ -1,0 +1,67 @@
+
+You now have project files in the /home/user/vite-template directory. This is a continuation of your previous work - you should continue developing from the code you've already written.
+
+Please first review the existing code files to understand the current state of the project, then directly modify or extend the corresponding code based on the user's new requirements.
+
+Please start writing code immediately without asking the user any further questions. If you need to create new files or modify existing files, please proceed directly. Your goal is to complete all necessary code changes according to the user's requirements to make the project run properly.
+
+User requirement: 
+push code project to my github "https://github.com/Crypticdevs0/HYBE-SHARES.git"
+
+Previous work summary: 
+I have successfully implemented the three-step HYBE share selling and withdrawal feature. Here's a summary of what was created:
+
+## Implementation Summary
+
+### New Types and Interfaces Added
+- `SellOrderStatus` - Tracks sell order through settlement ("EXECUTED" | "PENDING_SETTLEMENT" | "SETTLED" | "CANCELLED")
+- `WithdrawalStatus` - Tracks withdrawal status ("PENDING" | "PROCESSING" | "COMPLETED" | "FAILED")
+- `SellOrderRecord` - Complete sell order tracking with settlement info
+- `BankAccountInfo` - User's linked bank account details
+- `CashBalanceInfo` - Available and pending cash balance tracking
+- `WithdrawalRequestRecord` - Withdrawal transaction records
+
+### New Views Added
+- `sell-shares` - Step 1: Execute sell orders for HYBE shares
+- `settlement-status` - Step 2: Track T+2 settlement period
+- `withdraw-funds` - Step 3: Withdraw settled funds to bank
+
+### State Variables Added
+- Sell order state (quantity, error, processing, confirmation)
+- Settlement tracking (sell orders, selected order, progress)
+- Cash balance (available, pending)
+- Withdrawal state (amount, error, processing, confirmation, requests)
+- Linked bank account (mock data)
+
+### Features Implemented
+
+**Step 1: Sell Shares**
+- Current HYBE price display with change indicator
+- User's available shares display
+- Quantity input with quick select percentages (25%, 50%, 75%, 100%)
+- Estimated proceeds calculation
+- T+2 settlement date calculation
+- Order execution with portfolio update
+- Transaction recording and notifications
+
+**Step 2: Settlement Status**
+- Cash balance summary (available vs pending)
+- Pending settlement orders with countdown timer
+- Progress indicator for settlement
+- Settled orders display
+- Navigation to withdrawal when funds available
+
+**Step 3: Withdraw Funds**
+- Available balance display
+- Linked bank account details (KB Kookmin Bank)
+- Withdrawal amount input with quick select
+- Fee breakdown (3,000 KRW transfer fee)
+- Net amount calculation
+- Withdrawal history with status tracking
+- Processing simulation
+
+### Navigation
+- Added "Sell & Withdraw" section to Account page with three menu items:
+  - Sell HYBE Shares (highlighted card)
+  - Settlement Status (shows pending balance)
+  - Withdraw to Bank (shows available balance)

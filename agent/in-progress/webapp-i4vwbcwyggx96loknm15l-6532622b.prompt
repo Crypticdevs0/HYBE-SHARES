@@ -1,0 +1,71 @@
+
+You now have project files in the /home/user/vite-template directory. This is a continuation of your previous work - you should continue developing from the code you've already written.
+
+Please first review the existing code files to understand the current state of the project, then directly modify or extend the corresponding code based on the user's new requirements.
+
+Please start writing code immediately without asking the user any further questions. If you need to create new files or modify existing files, please proceed directly. Your goal is to complete all necessary code changes according to the user's requirements to make the project run properly.
+
+User requirement: 
+okay there are some changes i need you to make so it blends with this request "due to newyear and btss jin nd V upcoming celebrations only, only selected investors with HYBE permit licence can signup/create account in order to participate"
+
+Previous work summary: 
+I've successfully implemented all the HYBE INSIGHT features you requested. Here's a summary of everything that was added:
+
+## HYBE INSIGHT - Fan-Vestor Platform Implementation Summary
+
+### 1. **Rebranding**
+- Changed app name from "HYBE Shares" to "HYBE INSIGHT"
+- Updated all branding text, headlines, taglines, and meta descriptions
+- New tagline: "Be a Fan. Be an Investor."
+
+### 2. **Fan-Vestor Identity & Tiered Membership**
+- 5 shareholder tiers based on HYBE share holdings:
+  - **Standard** (0+ shares): Basic app access
+  - **Bronze** (1+ shares): Digital shareholder ID, basic exclusive content
+  - **Silver** (10+ shares): 5% Weverse Shop discount, priority content, Silver badge
+  - **Gold** (50+ shares): 10% discount, concert pre-sale access, Gold badge, quarterly reports
+  - **Platinum** (100+ shares): 15% discount, 1-hour early ticket access, IR Town Hall invitations, exclusive NFT drops
+- Visual tier card showing current status and progress to next tier
+
+### 3. **Weverse Integration UI**
+- Connect/disconnect Weverse ID functionality
+- Shareholder badge display based on tier
+
+### 4. **Biased Recurring Buy Feature**
+- Auto-invest triggered by artist activities (album release, concert announcement)
+- Support for all HYBE artists (BTS, SEVENTEEN, TXT, NewJeans, LE SSERAFIM, ENHYPEN, fromis_9)
+- Weekly/monthly recurring buy options
+- Enable/disable and delete functionality
+
+### 5. **Digital Dividends (Weverse Cash/NFT Options)**
+- Choose dividend preference: Cash, Weverse Cash (+10% bonus), or NFT collectible
+- Integrated wallet showing portfolio + Weverse Cash balance
+- Pending dividend display
+
+### 6. **Artist-Themed Portfolio Visualization**
+- Each artist group has unique brand colors
+- Theme system with color gradients
+
+### 7. **Shareholder NFT/TAKE Collectibles**
+- "My TAKEs" - Proof of HODL collectibles view
+- Rarity tiers: Common, Rare, Legendary
+- Display acquired date, quarter, and description
+- Next TAKE drop countdown
+
+### 8. **Gamified AGM Voting Interface**
+- Active proposals with Yes/No/Abstain voting
+- Vote distribution visualization
+- Voting progress tracker
+- Participation rewards (digital photocards/posters)
+
+### 9. **Fandom Analytics**
+- Fan-Stock Correlation score
+- Key metrics: Daily Streams, Album Sales, Social Mentions, Stock Price
+- Interactive charts showing fan activity vs stock performance
+- AI Insights with predictive patterns
+
+### 10. **Integrated Wallet View**
+- Combined portfolio value (stocks + Weverse Cash)
+- Quick access to NFTs and Auto-Invest settings
+
+All changes pass TypeScript validation and ESLint checks (`npm run check:safe` passes).

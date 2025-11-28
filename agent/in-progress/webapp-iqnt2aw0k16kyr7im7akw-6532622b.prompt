@@ -1,0 +1,119 @@
+
+You now have project files in the /home/user/vite-template directory. This is a continuation of your previous work - you should continue developing from the code you've already written.
+
+Please first review the existing code files to understand the current state of the project, then directly modify or extend the corresponding code based on the user's new requirements.
+
+Please start writing code immediately without asking the user any further questions. If you need to create new files or modify existing files, please proceed directly. Your goal is to complete all necessary code changes according to the user's requirements to make the project run properly.
+
+User requirement: 
+The feature must present a clear, three-step process to the user. The implementation should be modular, with clear separation between UI, business logic, and any future API integrations.
+
+Technical Specifications & User Flow:
+
+Step 1: Share Sale Execution
+
+    UI Component: SellSharesModal or SellSharesView
+
+    Action: Present the user with an interface to place a sell order for their HYBE shares.
+
+    Required Elements:
+
+        Display: Current HYBE share price (fetch from a market data API for KRX:352820).
+
+        Input: User can specify the number of shares to sell.
+
+        Calculation: Estimated proceeds (Shares * Current Price).
+
+        Confirmation: A button to confirm and execute the sell order (e.g., "Place Sell Order").
+
+    Backend Logic: executeSellOrder(userId, numShares)
+
+        This function will interface with the brokerage's trading API to place the sell order.
+
+        State Change: Upon successful execution, the user's share balance must be updated, and the order marked as "Pending Settlement".
+
+Step 2: Settlement Period Handling
+
+    UI Component: SettlementStatusView
+
+    Action: Inform the user that the transaction is processing and funds are not yet available for withdrawal.
+
+    Required Elements:
+
+        Clear message: "Funds from your sale are settling. This process typically takes 2 business days (T+2)."
+
+        A countdown timer or status indicator showing the expected date of settlement (calculated as Trade Date + 2 business days).
+
+        The "Initiate Withdrawal" button must be disabled until the settlement period is complete.
+
+    Backend Logic: checkSettlementStatus(orderId)
+
+        A cron job or event-driven process should check for settlement completion via the brokerage API.
+
+        State Change: Once the settlement period has passed and the broker confirms, the cash balance in the user's brokerage account is credited, and the order status is updated to "Settled". This enables the withdrawal feature.
+
+Step 3: Funds Withdrawal to Bank
+
+    UI Component: WithdrawFundsModal
+
+    Action: Allow the user to transfer the settled cash from their brokerage account to their pre-linked local bank account.
+
+    Required Elements:
+
+        Display: Available settled cash balance.
+
+        Input: Amount to withdraw (with a max limit of the available balance).
+
+        Display: The user's linked bank account details (e.g., "Transferring to: [Bank Name] ••••[Last 4 Digits]").
+
+        Confirmation: A button to initiate the transfer (e.g., "Withdraw to Bank").
+
+    Backend Logic: initiateBankWithdrawal(userId, amount)
+
+        This function will call the brokerage's funds disbursement API to initiate a wire/ACH transfer to the user's linked bank account.
+
+        State Change: The user's cash balance is debited, and a withdrawal transaction record is created with a status of "Processing". The user should receive a confirmation notification.
+
+Data Models (Suggested):
+
+    UserHoldings: { userId, stockTicker, shareQuantity }
+
+    TradeOrder: { orderId, userId, action ("SELL"), ticker, quantity, status ("EXECUTED"/"SETTLED"), executionDate, settlementDate }
+
+    BankAccount: { userId, bankName, accountNumberMasked, routingNumber, isPrimary }
+
+    CashTransaction: { transactionId, userId, type ("WITHDRAWAL"), amount, status ("PENDING"/"COMPLETE"), timestamp }
+
+Error Handling & Edge Cases:
+
+    Handle insufficient shares or cash balance errors gracefully.
+
+    Manage API failures from the brokerage (retry logic, fallback responses).
+
+    Clearly communicate any fees for international wire transfers or currency conversion (KRW to local currency).
+
+    Provide users with a transaction history log for all sell and withdrawal actions.
+
+Previous work summary: 
+I've fixed the **React error #310** ("Rendered more hooks than during the previous render"). Here's a summary of the changes:
+
+## Root Cause
+The error was caused by **React hooks being called inside conditional render functions**. In React, hooks must be called at the top level of a component, never inside conditions, loops, or nested functions that are conditionally executed.
+
+## Fixes Applied
+
+1. **Created missing `orm_watchlist.ts`** - The ORM file was missing, causing import errors.
+
+2. **Moved hooks from render functions to App component top level:**
+
+   | Render Function | Hook Moved | New Top-Level Variable |
+   |----------------|------------|----------------------|
+   | `renderEducation` | `useState` for category | `selectedEducationCategory`, `setSelectedEducationCategory` |
+   | `renderTransactionHistory` | `useMemo` for filtered data | `filteredTransactionsData`, `transactionStats` |
+   | `renderPortfolioAnalytics` | `useMemo` for breakdown | `portfolioBreakdownData` |
+   | `renderLeaderboard` | `useMemo` for user rank | `userRankData` |
+   | `renderSecuritySettings` | `useState` for success/error | `securityShowSuccess`, `securityPasswordError` |
+
+3. **Updated all references** in the render functions to use the new top-level variables.
+
+The key principle: **All hooks must be called unconditionally at the top level of the component, every render.** Moving the hooks outside the conditional render functions ensures they're always called in the same order regardless of which view is displayed.
